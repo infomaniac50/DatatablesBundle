@@ -5,6 +5,16 @@ services:
         tags:
             - { name: twig.extension }
 
+    sg_datatables.maker.makedatatable:
+        class: Sg\DatatablesBundle\Maker\MakeDatatable
+        arguments:
+            - '@maker.doctrine_helper'
+            - '@maker.generator'
+            - '@maker.file_manager'
+        public: false
+        tags:
+            - { name: maker.command }
+
     sg_datatables.datatable.abstract:
         class: Sg\DatatablesBundle\Datatable\AbstractDatatable
         abstract: true
